@@ -1,0 +1,23 @@
+[build]
+dockerfile = "Dockerfile"
+
+[deploy]
+startCommand = "python bot_ready.py"
+numReplicas = 1
+healthcheckTimeout = 30
+restartPolicyMaxRetries = 5
+
+[env]
+# Bot Configuration
+EXCHANGE = "binance"
+LOG_LEVEL = "INFO"
+
+# These will be set via Railway Dashboard Variables
+# TELEGRAM_TOKEN = from Railway Variables
+# TELEGRAM_CHAT_ID = from Railway Variables
+# API_KEY = from Railway Variables (Binance)
+# API_SECRET = from Railway Variables (Binance)
+# TRADING_PAIRS = from Railway Variables
+
+# Default if not set
+TRADING_PAIRS = "EURUSD/USD,GBPUSD/USD,USDJPY/USD,AUDUSD/USD,XAUUSD/USD,XAGUSD/USD,BTC/USDT,ETH/USDT,XRP/USDT,ADA/USDT,BNBUSD/USD,SOL/USDT"
